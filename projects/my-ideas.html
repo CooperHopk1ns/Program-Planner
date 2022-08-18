@@ -3,6 +3,8 @@
     <head>
         <!-- Stylesheet -->
         <link rel="stylesheet" href="/css/style.css">
+        <!-- Script -->
+        <script src="/javascript/myscripts.js" type="text/javascript"></script>
     </head>
     <body>
         <!-- Nav Start -->
@@ -77,7 +79,24 @@
         </nav>
         <!-- Nav End -->
         <main>
-
+            <h1>My Ideas</h1>
+            <!-- Table -->
+            <table id="myideastable">
+                <tr>
+                    <th>Idea Name</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <th>Enter An</th>
+                    <th>Idea</th>
+                    <th id="deletecolumn"><button id="deletebutton" onclick="deleteFunction()">X</button></th>
+                </tr>
+            </table>
+            <form id="addideaform">
+                <input type="text" id="ideaname" name="ideaname" placeholder="Idea Name">
+                <input type="text" id="description" name="description" placeholder="Description">
+            </form>
+            <button onclick="createFunction()">Add Idea</button>
         </main>
     </body>
     <!-- Footer -->
@@ -89,10 +108,18 @@
             <p>&copy; Program Planner. All Rights Reserved</p>
         </div>
         <div class="footersocials">
-        <img src="/assets/instagramlogo.png" class="socialimages">
-        <img src="/assets/facebooklogo.png" class="socialimages">
-        <img src="/assets/redditlogo.png" class="socialimages">
-        <img src="/assets/twitterlogo.png" class="socialimages">
+            <a href="https://instagram.com">
+                <img src="/assets/instagramlogo.png" class="socialimages">
+            </a>
+            <a href="https://facebook.com">
+                <img src="/assets/facebooklogo.png" class="socialimages">
+            </a>
+            <a href="https://reddit.com">
+                <img src="/assets/redditlogo.png" class="socialimages">
+            </a>
+            <a href="https://twitter.com">        
+                <img src="/assets/twitterlogo.png" class="socialimages">
+            </a>
         </div>
     </footer>
 </html>

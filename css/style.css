@@ -55,7 +55,7 @@ nav {
 a {
     text-decoration: none;
     color: #16324F;
-    fill: #16342F;
+    fill: #16324F;
 }
 a :hover {
     color: #25B3D3;
@@ -111,7 +111,6 @@ footer {
 
 /* Page Specific Style */
 /* Index Page Style */
-/* Cover Image Style */
 #cover-image {
     max-width: 50%;
     max-height: 50%;
@@ -123,27 +122,103 @@ footer {
 #indextext {
     width: 50%;
     margin-left: 25%;
+    font-size: 16px;
+    text-align: left;
 }
-/* Project Page Style */
-.socials {
-    max-width: 20%;
-    max-height: 20%;
-    margin: 5px;
+/* My Ideas Style */
+#myideastable{
+    width: 50%;
+    margin-left: 25%;
+    border-collapse: collapse;
+}
+td, th {
+    border: 1px solid #817F82;
+    width: 50%;
+}
+button {
+    margin-top: 10px;
+    margin-left: 25%;
+    margin-right: 26%;
+    width: 100px;
+    height: 30px;
+}
+#addideaform {
+    margin-top: 10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+#ideaname {
+    width: 35%;
+    height: 25px;
+    margin-left: 7.5%;
+    padding: 0;
+    border: 1px solid #817F82;
+    text-align: center;
     display: block;
-    float: left; 
-    margin-left: 3.5%;
+    float: left;
 }
-
-/* Settings Page Style */
-.sidenavbar {
-    list-style-type: none;
+#description {
+    width: 35%;
+    height: 25px;
+    margin-right: 7.5%;
+    padding: 0;
+    border: 1px solid #817F82;
+    text-align: center;
+    display: block;
+    float: right;
+}
+#deletecolumn {
+    border: 0;
+}
+#deletebutton {
+    float: right;
     margin: 0;
     padding: 0;
-    width: 25%;
-    background-color: #f1f1f1;
-    height: 23%;
+    width: 25px;
+    height: 25px;
+    margin-left: 4px;
+}
+/* Create New Project Style */
+#ideadropdown {
+    float: left;
+    padding-left: 40%;
+}
+#newideainput {
+    float: right;
+    padding-right: 40%;
+}
+/* About Us Style */
+#aboutussocials {
+   display: block; 
+   float: left;
+   width: 50%;
+   margin-left: 25%;
+   margin-right: 25%;
+}
+.socials {
+    max-width: 15%;
+    max-height: 15%;
+    margin: 5px;
+    display: inline-block;
+    float: none;
+    margin: 2.5%;
+}
+/* Settings Page Style */
+#sidenavbar {
+    top: 68px;
+    padding-top: 40px;
+    width: 15%;
+    background-color: #f1f1f1f1;
+    height: 100%;
     position: fixed;
-    overflow: auto;
     text-align: center;
+    display: block;
+    list-style-type: none;
+    font-size: 20px;
+}
+.sidenavlink {
+   padding: 10px; 
+   margin-right: 20%;
 }
 
