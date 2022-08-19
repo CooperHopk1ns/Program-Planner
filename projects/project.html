@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Project</title>
         <!-- Stylesheet -->
         <link rel="stylesheet" href="/css/style.css">
         <!-- JavaScript -->
-        <script src="/javascript/myscripts.js" type="text/javascript"></script>
+        <script src="/javascript/myscripts.js" type="text/javascript">
+            checkPage();
+        </script>
     </head>
     <body>
+        <div id="wrapper">
         <!-- Nav Start -->
         <nav>
             <!-- Logo -->
@@ -79,9 +83,39 @@
         </nav>
         <!-- Nav End -->
         <main>
-            <h1 id="projectname" ></h1>
+            <div class="project">
+                <div class="design">
+                    <h2>Design</h2>
+                    <button onclick="designAddPage()">Add Page</button>
+                </div>
+                <div class="todo">
+                    <h2>To Do</h2>
+                    <table id="todotable">
+                        <tr>
+                            <th style="width: 20%;">Status</th>
+                            <th style="width: 30%;">Name</th>
+                            <th style="width: 50%;">Description</th>
+                        </tr>
+                        <tr>
+                            <td style="width: 20%;"><select class="statusselect" onchange="changeOptionColor()">
+                                <option value="1" id="statusselectoption1">Not Started</option>
+                                <option value="2">Started</option>
+                                <option value="3">Debugging</option>
+                                <option value="4">Done</option>
+                            </select></td>
+                            <td style="width: 30%;"><input type="text"  class="textboxinputname"/></td>
+                            <td style="width: 50%;"><input type="text"  class="textboxinputdescription"/></td>
+                        </tr>
+                    </table>
+                    <div id="todotablebuttons">
+                    <button onclick="addToDoRow()" id="addtodorowbutton">Add Row</button>
+                    <button onclick="deleteToDoRow()" id="deletetodorowbutton">Remove Row</button>
+                    <input type="number" min="1" value="1" id="deletetodorowbuttoninput">
+                    </div>
+                </div>
+            </div>
         </main>
-    </body>
+    </div>
     <!-- Footer -->
     <footer>
         <div class="footertextleft">
@@ -105,4 +139,5 @@
             </a>
         </div>
     </footer>
+</body>
 </html>

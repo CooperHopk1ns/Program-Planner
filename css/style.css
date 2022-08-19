@@ -19,6 +19,16 @@ html {
 p {
     margin-left: 10px;
 }
+body {
+    min-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0;
+}
+#wrapper {
+    min-height: calc(100vh - 75px);
+    overflow-y: scroll;
+}
 /* Logo Style */
 #logo {
     max-width: 100%;
@@ -27,7 +37,7 @@ p {
 }
 /* Navbar Style */
 nav {
-    width: 100%;
+    width: 100vw;
     height: 75px;
     border-bottom: solid 5px black;
     left: 0;
@@ -40,7 +50,7 @@ nav {
     padding-top: 10px;
 }
 .navbuttonsright {
-    padding-right: 50px;
+    padding-right: 25px;
     display: flex;
     float: right;
     padding-top: 10px;
@@ -68,14 +78,11 @@ a ::selection {
 /* Footer Style */
 footer {
     background-color: #817F82;
-    margin-top: 30px;
     border-top: solid 5px black;
     display: block;
-    position: absolute;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 75px;
+    width: 100vw;
+    height: 70px;
 }
 .footertextleft {
     display: block;
@@ -112,10 +119,10 @@ footer {
 /* Page Specific Style */
 /* Index Page Style */
 #cover-image {
-    max-width: 50%;
-    max-height: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+    max-width: 45%;
+    max-height: 45%;
+    margin-left: 27.5%;
+    margin-right: 27.5%;
     padding-top: 2%;
     padding-bottom: 10px;
 }
@@ -126,58 +133,56 @@ footer {
     text-align: left;
 }
 /* My Ideas Style */
-#myideastable{
-    width: 50%;
-    margin-left: 25%;
+#myideastable {
+    width: 63%;
+    margin-left: 20%;
     border-collapse: collapse;
 }
-td, th {
-    border: 1px solid #817F82;
+#myideastable th, #myideastable td {
+    border: 1px solid black;
     width: 50%;
 }
-button {
-    margin-top: 10px;
-    margin-left: 25%;
-    margin-right: 26%;
+#myideastable th {
+    background-color: #817F82;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+#ideaname, #description {
+    width: 100%;
+    height: 30px;
+    font-size: 15px;
+    padding: 0;
+    border: 0;
+    text-align: center;
+}
+#addideabutton {
     width: 100px;
     height: 30px;
-}
-#addideaform {
     margin-top: 10px;
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
-}
-#ideaname {
-    width: 35%;
-    height: 25px;
-    margin-left: 7.5%;
-    padding: 0;
-    border: 1px solid #817F82;
-    text-align: center;
-    display: block;
+    border: solid 1px black;
     float: left;
+    margin-left: 32.5%;
+    margin-bottom: 100px;
 }
-#description {
-    width: 35%;
-    height: 25px;
-    margin-right: 7.5%;
-    padding: 0;
-    border: 1px solid #817F82;
-    text-align: center;
-    display: block;
+#addideabutton:hover {
+    background-color: #F08700;
+}
+#deleterow {
     float: right;
-}
-#deletecolumn {
-    border: 0;
+    margin-right: 25%;
 }
 #deletebutton {
-    float: right;
-    margin: 0;
-    padding: 0;
-    width: 25px;
-    height: 25px;
-    margin-left: 4px;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    border: solid 1px black;
+}
+#deletebutton:hover {
+    background-color: #F08700;
+}
+#deleterowpositioninput {
+    width: 75px;
 }
 /* Create New Project Style */
 #ideadropdown {
@@ -187,6 +192,89 @@ button {
 #newideainput {
     float: right;
     padding-right: 40%;
+}
+/* My Projects Style */
+.projectlink {
+    width: 250px;
+    height: 200px;
+    float: left;
+    display: block;
+    margin-left: 42.5%;
+    border: 2px solid black;
+}
+.projectlinktitle {
+    border-top: 1px solid black;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.projectlinkdescription {
+    margin: 0;
+    padding: 15px 10px 60px 10px;
+}
+/* Project Style */
+.project {
+    width: 100%;
+    height: calc(100vh - 155px);
+}
+.design {
+    width: 50%;
+    height: 100%;
+    display: block;
+    float: left;
+}
+.todo {
+    width: 50%;
+    height: 100%;
+    float: right;
+    background-color: #f1f1f1f1
+}
+#todotable {
+    margin-left: 5%;
+    width: 90%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    float: left;
+}
+#todotable tr td {
+    border: 1px solid black;
+    height: 45px;
+}
+.textboxinputname, .textboxinputdescription {
+    background-color: #f1f1f1f1;
+    width: 99%;
+    font-size: 14px;
+    text-align: center;
+    height: 40px;
+    border: 0;
+}
+.statusselect {
+    width: 60%;
+    height: 25px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: black;
+    color: white;
+    background-color: #817F82;
+}
+#todotablebuttons {
+    float: right;
+    padding-right: 10%;
+    padding-left: 10%;
+    width: 80%;
+}
+#addtodorowbutton, #deletetodorowbutton {
+    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;  
+    margin-left: 25%;
+}
+#deletetodorowbuttoninput {
+    width: 7.5%;
+    margin-left: 2%;
 }
 /* About Us Style */
 #aboutussocials {
@@ -206,11 +294,11 @@ button {
 }
 /* Settings Page Style */
 #sidenavbar {
-    top: 68px;
+    top: 60px;
     padding-top: 40px;
     width: 15%;
     background-color: #f1f1f1f1;
-    height: 100%;
+    height: calc(100vh - 195px);
     position: fixed;
     text-align: center;
     display: block;

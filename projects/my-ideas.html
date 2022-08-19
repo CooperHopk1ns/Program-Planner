@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!-- Title -->
+        <title>My Ideas</title>
         <!-- Stylesheet -->
         <link rel="stylesheet" href="/css/style.css">
         <!-- Script -->
-        <script src="/javascript/myscripts.js" type="text/javascript"></script>
+        <script src="/javascript/myscripts.js" type="text/javascript">
+            checkPage()
+        </script>
     </head>
     <body>
+    <div id="wrapper">
         <!-- Nav Start -->
         <nav>
             <!-- Logo -->
@@ -86,19 +91,15 @@
                     <th>Idea Name</th>
                     <th>Description</th>
                 </tr>
-                <tr>
-                    <th>Enter An</th>
-                    <th>Idea</th>
-                    <th id="deletecolumn"><button id="deletebutton" onclick="deleteFunction()">X</button></th>
-                </tr>
+            
             </table>
-            <form id="addideaform">
-                <input type="text" id="ideaname" name="ideaname" placeholder="Idea Name">
-                <input type="text" id="description" name="description" placeholder="Description">
-            </form>
-            <button onclick="createFunction()">Add Idea</button>
+            <button onclick="addIdea()" id="addideabutton">Add Idea</button>
+            <div id="deleterow">
+            <button onclick="removeIdea()" id="deletebutton">Remove Idea</button>
+            <input type="number" min="1" value="1" placeholder="Enter Row" id="deleterowpositioninput">
+            </div>
         </main>
-    </body>
+    </div>
     <!-- Footer -->
     <footer>
         <div class="footertextleft">
@@ -122,4 +123,5 @@
             </a>
         </div>
     </footer>
+</body>
 </html>
