@@ -84,7 +84,36 @@
         <!-- Nav End -->
         <main>
             <h1>My Account</h1>
-            
+            <h2 id="createaccountorlogintext">Sign Up Or Log In</h2>
+            <div id="createnewaccount">
+                <h3>Sign Up</h3>
+               <form>
+               <label for="username">Username: </label>
+               <input type="text" placeholder="Enter Username" name="username" id="newuserinput">
+               <label for="password">Password: </label>
+               <input type="password" placeholder="Enter Password" name="password" id="newpasswordinput">
+               <label for="passwordcheck">Verify Passwrod: </label>
+               <input type="password" placeholder="Verify Password" name="passwordcheck" id="newpasswordinputcheck">
+               <button id="signupbutton" onclick="createNewAccount()" type="submit">Sign Up</button>
+                </form>
+            </div>
+            <div id="loginaccount">
+                <h3>Log In</h3>
+                <form>
+                <label for="username">Username: </label>
+                <input type="text" placeholder="Enter Username" name="username" id="usernamelogininput" required>
+                <label for="password">Password: </label>
+                <input type="password" placeholder="Enter Password" name="password" id="passwordlogininput" required>
+                <button id="loginbutton" onclick="accountLogin()" type="submit">Log In</button>
+                </form>
+            </div>
+            <div id="accountpage">
+                <h2>Account Details</h2>
+                <h3 id="accountdetailsusername"></h3>
+                <div id="accountpassword">
+                <h3 id="accountdetailspassword"></h3>
+                </div>
+            </div>
         </main>
     </div>
     <!-- Footer -->

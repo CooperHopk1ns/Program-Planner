@@ -171,7 +171,7 @@ footer {
     padding-top: 12px;
     padding-bottom: 12px;
 }
-#ideaname, #description {
+.ideaname, .description {
     width: 100%;
     height: 35px;
     font-size: 15px;
@@ -208,6 +208,15 @@ footer {
 }
 #deleterowpositioninput {
     width: 75px;
+}
+#saveworkbutton {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    border: solid 1px black;
+}
+#saveworkbutton:hover {
+    background-color: #F08700;
 }
 /* Create New Project Style */
 #ideadropdown {
@@ -265,7 +274,7 @@ footer {
     height: 200px;
     float: left;
     display: block;
-    margin-left: 42.5%;
+    margin-left: 41.25%;
     border: 2px solid black;
 }
 .projectlinktitle {
@@ -355,6 +364,45 @@ footer {
     font-size: 34px;
     width: 15%;
 }
+#todotitlelink {
+    float: right;
+    display: block;
+    margin-right: 42.5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 34px;
+    width: 15%;
+}
+#designpageselector {
+    background-color: #f1f1f1f1;
+    width: 99%;
+    margin-left: 0.5%;
+    height: 75%;
+    margin-top: 20px;
+    border: 1px solid black;
+    display: none;
+    float: left;
+}
+#choosepagelayoutform input[type="radio"] {
+    opacity: 0;
+}
+#choosepagelayoutform input[type="radio"]:checked + label {
+    color: #25B3D3;
+    fill: #25B3D3;
+}
+#choosepagelayoutform label {
+    font-size: 20px;
+    padding: 5px 20px 25px 10px;
+}
+#designpagebuttonenter {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    display: block;
+    margin-left: 42.5%;
+    margin-top: 20px;
+}
 /* About Us Style */
 .aboutustextbox {
     margin: 0px 30% 75px 30%;
@@ -412,6 +460,63 @@ footer {
      float: none;
      margin: 2.5%;
  }
+ /* Account Style */
+ #createnewaccount {
+    width: 50%;
+    float: left;
+    margin-bottom: 10px;
+ }
+ #createnewaccount input {
+    margin-right: 25%;
+    margin-top: 20px;
+    width: 30%;
+ }
+ #createnewaccount label {
+    margin-left: 25%;
+    width: 20%;
+ }
+ #signupbutton {
+    margin-top: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #817F82;
+ }
+ #signupbutton:hover {
+    background-color: #25B3D3;
+ }
+ #loginaccount {
+    width: 50%;
+    float: right;
+    margin-bottom: 10px;
+ }
+ #loginaccount input {
+    margin-right: 25%;
+    margin-top: 20px;
+    width: 30%;
+ }
+ #loginaccount label {
+    margin-left: 25%;
+    width: 20%;
+ }
+ #loginbutton {
+    margin-top: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #817F82;
+ }
+ #loginbutton:hover {
+    background-color: #25B3D3;
+ }
+ #accountpage {
+    display: none;
+    margin-right: 10%;
+    margin-left: 10%;
+ }
+ #accountpage h2 {
+    border-bottom: 2px solid black;
+    margin: 50px 15% 20px 15%;
+    padding-bottom: 10px;
+ }
 /* Settings Page Style */
 #sidenavbar {
     top: 60px;
@@ -429,7 +534,50 @@ footer {
    padding: 10px; 
    margin-right: 20%;
 }
-
+/* Base Settings Style */
+#changecolorinput {
+    width: 150px;
+    height: 20px;
+}
+#changecolorenterbutton {
+    width: 75px;
+    height: 25px;
+    border: 1px solid black;
+}
+#resetcolorbutton {
+    width: 75px;
+    height: 25px;
+    border: 1px solid black;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 15px;
+}
+/* Project Defaults Style */
+#choosedefaultplatforminputs input[type="radio"] {
+    opacity: 0;
+}
+#choosedefaultplatforminputs input[type="radio"]:checked + label {
+    background-color: #25B3D3;
+}
+#choosedefaultplatforminputs label {
+    font-size: 20px;
+    background-color: #817F82;
+    padding: 5px 10px 5px 10px;
+}
+#defaultchooselayoutform input[type="radio"] {
+    background-color: #817F82;
+    opacity: 0;
+    margin: 20px;
+}
+#defaultchooselayoutform input[type="radio"]:checked + label {
+    color: #25B3D3;
+    fill: #25B3D3;
+}
+#choosedefaultplatformenterbutton {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+}
 /* Support Page Style */
 .howtousesection {
     border-bottom: 1px solid black;
