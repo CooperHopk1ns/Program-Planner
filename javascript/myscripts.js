@@ -296,7 +296,7 @@
             newimage.src = "/assets/navtopright.png";
         } else if (newPageLayout == "twocolumnlayout") {
             newimage.src = "/assets/twocolumn.png";
-        } else if (newPagelayout == "threecolumn.png") {
+        } else if (newPageLayout == "threecolumnlayout") {
             newimage.src = "/assets/threecolumn.png";
         }
         newimage.className = "designimage";
