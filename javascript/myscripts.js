@@ -121,15 +121,12 @@
         var projectLayout;
         //Project Name
         projectName = document.getElementById("ideanametext").value;
-        console.log(projectName);
         //Project Platform
-        checkPlatform();
+        checkNewPlatform();
         projectPlatform = selectedPlatform;
-        console.log(projectPlatform);
         //Project Layout
-        checkLayout();
+        checkNewLayout();
         projectLayout = selectedLayout;
-        console.log(projectLayout);
         //Storage
         sessionStorage.setItem("newProjectName", projectName);
         sessionStorage.setItem("newProjectPlatform", projectPlatform);
@@ -141,7 +138,7 @@
         sessionStorage.setItem("newprojectcreated", newProject);
         }
      }
-     function checkPlatform() {
+     function checkNewPlatform() {
         var options = document.getElementsByName("platformradiobuttons");
         for (i=0; i<options.length; i++) {
             if (options[i].checked) {
@@ -149,22 +146,88 @@
             }
         }
      }
-     function checkLayout() {
+     function checkNewLayout() {
         var options = document.getElementsByName("layoutradiobuttons");
-        for (i=0; i<options.length; i++) {
-            if (options[i].checked) {
-                selectedLayout = options[i].id;
+        for (o=0; o<options.length; o++) {
+            if (options[o].checked) {
+                selectedLayout = options[o].id;
             }
         }
      }
      //My Projects Page
-     function newProjectLink() {
-        var newDefaultLayout = sessionStorage.getItem("defaultlayout");
-        document.getElementById("projectlinklayout").text = newDefaultLayout.value;
-     }
-     //Project Page
      //Variables
-     var myprojects = [];
+     var linkClicked = "";
+     var projectDesign;
+     var projectCounter = 0;
+     function newProjectLink() {
+        //Storage Fetch
+        var newprojectname = sessionStorage.getItem("newProjectName");
+        var newprojectplatform = sessionStorage.getItem("newProjectPlatform")
+        var newprojectlayout = sessionStorage.getItem("newProjectLayout");
+        //Create Element
+        var newDiv = document.createElement("div");
+        var newlayout = document.createElement("p");
+        var newplatform = document.createElement("p");
+        var newname = document.createElement("p");
+        var newnamelink = document.createElement("a");
+        //Assign Id, Class Name, And Append
+        document.getElementById("masterprojectlink").appendChild(newDiv);
+        newDiv.className = "projectlink";
+        newDiv.appendChild(newlayout);
+        newDiv.appendChild(newplatform);
+        newDiv.appendChild(newname);
+        newDiv.appendChild(newnamelink);
+        newlayout.id = "projectlinklayout";
+        newplatform.id = "projectlinkplatform";
+        newname.className = "projectlinktitle";
+        newnamelink.href = "/projects/project.html";
+        //Assign String Value
+        newplatform.innerHTML = newprojectplatform;
+        newlayout.innerHTML = newprojectlayout;
+        newnamelink.innerText = newprojectname;
+        newname.appendChild(newnamelink);
+        newnamelink.onclick = linkTitleClick(newnamelink);
+        //Conversion
+        convertPlatform(newplatform);    
+        convertLayout(newlayout);   
+        //Storage
+        localStorage.setItem("project" + projectCounter, newDiv.innerHTML);
+        projectCounter = ++projectCounter;
+        localStorage.setItem("projectCounter", projectCounter);
+     }
+     function linkTitleClick(x) {
+        linkClicked = x.innerHTML;
+        localStorage.setItem("linkClicked", linkClicked);
+     }
+     function convertPlatform(x) {
+        if (x.innerText == "createnewdesktopinput") {
+            x.innerText = "Desktop";
+        } else if (x.innerText == "createnewmobileinput") {
+            x.innerText = "Mobile";
+        } else if (x.innerText == "createnewwebinput") {
+            x.innerText = "Web";
+        } else if (x.innerText == "createnewmultiinput") {
+            x.innerText = "Multi-Platform";
+        }
+     }
+     function convertLayout(x) {
+        if (x.innerText == "reversesidebarlayout") {
+            x.innerText = "Reverse Side Bar Layout";
+        } else if (x.innerText == "sidebarlayout") {
+            x.innerText = "Side Bar Layout";
+        } else if (x.innerText == "reversenavsidebarlayout") {
+            x.innerText = "Reverse Nav Side Bar layout";
+        } else if (x.innerText == "navsidebarlayout") {
+            x.innerText = "Nav Side Bar Layout";
+        } else if (x.innerText == "twocolumnlayout") {
+            x.innerText = "Two Column Layout";
+        } else if (x.innerText == "Three Column Layout") {
+            x.innerText = "Three Column Layout";
+        } else if (x.innerText == "nolayout") {
+            x.innerText = "No Layout Selected";
+        }
+     } 
+     //Project Page
      //Project Page To Do
      function addToDoRow() {
         //Table Variable
@@ -195,14 +258,14 @@
         var todonameinput = document.createElement("textarea");
         todonameinput.className = "textboxinputname";
         //Description Input
-        var tododescriptioninput = document.createElement("teaxtarea");
+        var tododescriptioninput = document.createElement("textarea");
         tododescriptioninput.className = "textboxinputdescription";
         //New Row
         cell1.appendChild(statusSelect);
         cell2.appendChild(todonameinput);
         cell3.appendChild(tododescriptioninput);
      }
-
+     //Delete To Do Row
      function deleteToDoRow() {
         var deleteRowPosition = document.getElementById("deletetodorowbuttoninput").value;
         var deleteRows = document.getElementById("todotable").getElementsByTagName("tr");
@@ -211,33 +274,45 @@
         }
         document.getElementById("deletetodorowbuttoninput").value = "1";
      }
-
-     function changeOptionColor() {
-        var statusSelectOption = document.getElementsByClassName("statusselect").getElementsByTagName("option");
-        if (statusSelectOption.value == "1") {
-            console.log("cheese");
-        }
-     }
-     
-     //Project Page
+     //Project Design Page
      var newPage;
-     //SVG Variables
-     var reversesidebarlayout = document.getElementById("reversesidebarlayout");
-     var newreversesidebarlayout = document.createElement(reversesidebarlayout);
+     var newDesign;
+     var newPageLayout;
      function showDesignAddPage() {
         document.getElementById("designpageselector").style.display = "block";
-     } 
-     function addDesignPage() {
-        checkLayout();
-        newreversesidebarlayout;
-        newreversesidebarlayout.style.display = "block";
-        console.log("w")
      }
-     function checkLayout() {
+     var pagedesigncounter = 0;
+     function addDesignPage() {
+        var design = document.getElementById("designimages");
+        var newimage = document.createElement("img");
+        checkLayoutForImage();
+        if (newPageLayout == "reversesidebarlayout") {
+            newimage.src = "/assets/navbarleft.png";
+        } else if (newPageLayout == "sidebarlayout") {
+            newimage.src = "/assets/navbarright.png";
+        } else if (newPageLayout == "reversenavsidebarlayout") {
+            newimage.src = "/assets/navtopleft.png";
+        } else if (newPageLayout == "navsidebarlayout") {
+            newimage.src = "/assets/navtopright.png";
+        } else if (newPageLayout == "twocolumnlayout") {
+            newimage.src = "/assets/twocolumn.png";
+        } else if (newPagelayout == "threecolumn.png") {
+            newimage.src = "/assets/threecolumn.png";
+        }
+        newimage.className = "designimage";
+        design.appendChild(newimage);
+        document.getElementById("designpageselector").style.display = "none";
+        pagedesigncounter = ++pagedesigncounter;
+        if (pagedesigncounter >= 5) {
+            document.getElementById("addDesignPageButton").style.display = "none";
+        }
+    }
+    function checkLayoutForImage() {
         var options = document.getElementsByName("pagelayoutradiobuttons");
-        for (i=0; i<options.length; i++) {
-            if (options[i].checked) {
-                newPage = options[i].id;
+        for (o=0; o<options.length; o++) {
+            if (options[o].checked) {
+                newPageLayout = options[o].id;
+                console.log(newPageLayout);
             }
         }
      }
@@ -274,7 +349,6 @@
      function accountLogin() {
         username = localStorage.getItem("username");
         password = localStorage.getItem("password");
-        console.log(password)
         var usernamelogincheck;
         var passwordlogincheck;
         usernamelogincheck = document.getElementById("usernamelogininput").value;
@@ -354,6 +428,7 @@
         document.getElementById("wrapper").style.backgroundColor = localStorage.getItem("backgroundColor");
         console.log(document.title);
         if (document.title == "My Ideas") {
+        //My Ideas
             document.getElementById("myideaslink").style.color = "#f08700";
             document.getElementById("myideaslinkimage").style.fill = "f08700";
             //Fetch Local Storage
@@ -386,6 +461,7 @@
                 }
             }
         } else if (document.title == "Create New Project") {
+        //Create New Project
             var defaultPlatformSelected = localStorage.getItem("defaultplatform");
             if (defaultPlatformSelected === "defaultdesktopinput") {
                 document.getElementById("createnewdesktopinput").checked = true;
@@ -414,37 +490,69 @@
             }
             document.getElementById("createnewprojectlink").style.color = "#f08700";
             document.getElementById("createnewprojectlinkimage").style.fill = "#f08700";
-        } else if (document.title == "My Projects" || document.title == "Project Design" || document.title == "Project To Do" || document.title == "Project") {
+        } else if (document.title == "Project Design") {
+        //Project Design
             document.getElementById("myprojectslink").style.color = "#f08700";
-            document.getElementById("myprojectslinkimage").style.fill = "#f08700";   
+            document.getElementById("myprojectslinkimage").style.fill = "#f08700";
+        } else if (document.title == "Project To Do") {
+        //Project To Do
+            document.getElementById("myprojectslink").style.color = "#f08700";
+            document.getElementById("myprojectslinkimage").style.fill = "#f08700";
+            linkClicked = localStorage.getItem("linkClicked");
+            document.getElementById("projecttitle").innerHTML = "Project Name: " + linkClicked;
+        } else if (document.title == "Project") {
+        //Project
+            document.getElementById("myprojectslink").style.color = "#f08700";
+            document.getElementById("myprojectslinkimage").style.fill = "#f08700";
+            linkClicked = localStorage.getItem("linkClicked");
+            document.getElementById("projecttitle").innerHTML = "Project Name: " + linkClicked;
+        } else if (document.title == "My Projects") {
+        //My Projects
+            document.getElementById("myprojectslink").style.color = "#f08700";
+            document.getElementById("myprojectslinkimage").style.fill = "#f08700";    
             newProject = sessionStorage.getItem("newprojectcreated");
-            console.log(newProject);
-            if (newProject == true) {
-                console.log("ran");
+            projectCounter = localStorage.getItem("projectCounter");
+            if (projectCounter == null) {
+                projectCounter = 0;
+            }
+            for (i=0; i<projectCounter; i++) {
+                if (localStorage.getItem("project" + i) != null) {
+                var div = localStorage.getItem("project" + i);
+                var master = document.getElementById("masterprojectlink");
+                console.log(div);
+                var child = document.createElement("div");
+                child.className = "projectlink";
+                child.innerHTML = div;
+                master.appendChild(child);
+                }
+            }
+            if (newProject == "true") {
                 newProjectLink();
+                localStorage.getItem("")
                 newProject = false;
                 sessionStorage.setItem("newprojectcreated", newProject);
             } 
-        } else if (document.title == "About Us") {
+        }else if (document.title == "About Us") {
+        //About Us
             document.getElementById("aboutlink").style.color = "#f08700";
             document.getElementById("aboutlinkimage").style.fill = "#f08700";
         } else if (document.title == "Settings - Project Defaults" || document.title == "Settings - Base Settings") {
+        //Settings
             document.getElementById("settingslink").style.color = "#f08700";
             document.getElementById("settingslinkimage").style.fill = "#f08700";
         } else if (document.title == "My Account") {
+        //Account
             document.getElementById("accountlink").style.color = "#f08700";
             document.getElementById("accountlinkimage").style.fill = "#f08700";
             hasaccount = sessionStorage.getItem("hasaccount");
             console.log(hasaccount);
             if (hasaccount === "false") {
-                console.log("x");
                 document.getElementById("createnewaccount").style.display = "block";
                 document.getElementById("loginaccount").style.display = "block";
                 document.getElementById("createaccountorlogintext").style.display = "block";
                 document.getElementById("accountpage").style.display = "none";
             } 
             if (hasaccount === "true") {
-                console.log("w")
                 username = localStorage.getItem("username");
                 password = localStorage.getItem("password");
                 document.getElementById("createnewaccount").style.display = "none";

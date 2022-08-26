@@ -274,36 +274,51 @@ footer {
     height: 200px;
     float: left;
     display: block;
-    margin-left: 41.25%;
     border: 2px solid black;
+    margin-left: 8%;
+    margin-bottom: 40px;
 }
 .projectlinktitle {
     border-top: 1px solid black;
-    margin: 0;
+    margin-top: 100px;
+    margin-left: 0;
+    margin-right: 0;
     width: 100%;
-    height: 100%;
+    height: 20px;
     text-align: center;
 }
-.projectlinkdescription {
+#projectlinkplatform, #projectlinklayout {
     margin: 0;
-    padding: 15px 10px 60px 10px;
+}
+#projectlinklayout {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 /* Project Style */
+#projecttitle {
+    font-size: 17px;
+}
 .project {
     width: 100%;
     height: calc(100vh - 155px);
 }
-.design {
+#design {
     width: 50%;
     height: 100%;
     display: block;
     float: left;
 }
+#addDesignPageButton {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+}
 .todo {
     width: 50%;
-    height: 100%;
+    min-height: calc(100vh - 155px);
     float: right;
-    background-color: #f1f1f1f1
+    background-color: #f1f1f1f1;
+    overflow-y: scroll;
 }
 #todotable {
     margin-left: 5%;
@@ -335,7 +350,7 @@ footer {
     border-radius: 10px;
     border-color: black;
     color: white;
-    background-color: #817F82;
+    background-color: #16324F;
 }
 #todotablebuttons {
     float: right;
@@ -349,10 +364,20 @@ footer {
     height: 30px;
     margin-top: 10px;  
     margin-left: 25%;
+    margin-bottom: 100px;
 }
 #deletetodorowbuttoninput {
-    width: 7.5%;
+    width: 50px;
     margin-left: 2%;
+}
+#todosavebutton {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+#todosavebutton:hover, #addtodorowbutton:hover, #deletetodorowbutton:hover {
+    background-color: #F08700;
 }
 #designtitlelink {
     float: left;
@@ -378,11 +403,12 @@ footer {
     background-color: #f1f1f1f1;
     width: 99%;
     margin-left: 0.5%;
-    height: 75%;
+    height: 50%;
     margin-top: 20px;
     border: 1px solid black;
     display: none;
     float: left;
+    overflow-y: scroll;
 }
 #choosepagelayoutform input[type="radio"] {
     opacity: 0;
@@ -401,6 +427,50 @@ footer {
     border: 1px solid black;
     display: block;
     margin-left: 42.5%;
+    margin-top: 20px;
+}
+/* To Do Style */
+.fulltodo {
+    width: 100%;
+    height: calc(100vh - 275px);
+    float: right;
+    background-color: #f1f1f1f1
+}
+#fulladdtodorowbutton, #fulldeletetodorowbutton {
+    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;  
+    margin-left: 30%;
+}
+#fulladdtodorowbutton {
+    margin-left: 20%;
+}
+/* Design Style */
+#projectdesigndescription {
+    width: 100%;
+    height: 25vh;
+    border: 1px solid black;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-top: 10px;
+    font-size: 17px;
+}
+#designpagechooselayoutform {
+    margin-top: 10px;
+    margin-left: -2.5%;
+}
+#designpagechooselayoutform input[type="radio"] {
+    opacity: 0;
+}
+#designpagechooselayoutform input[type="radio"]:checked + label {
+    color: #25B3D3;
+}
+.designimage {
+    width: 100px;
+    height: 100px;
+    margin-left: 42.5%;
+    margin-right: 45%;
     margin-top: 20px;
 }
 /* About Us Style */
@@ -543,13 +613,14 @@ footer {
     width: 75px;
     height: 25px;
     border: 1px solid black;
+    margin-left: 1%
 }
 #resetcolorbutton {
-    width: 75px;
+    width: 10%;
     height: 25px;
     border: 1px solid black;
-    margin-left: 40%;
-    margin-right: 40%;
+    margin-left: 45%;
+    margin-right: 45%;
     margin-top: 15px;
 }
 /* Project Defaults Style */

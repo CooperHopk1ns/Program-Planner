@@ -86,15 +86,16 @@
         <!-- Nav End -->
         <main>
             <div class="project">
-                <div class="design">
+                <div id="design">
                     <a href="/projects/project-design.html" id="designtitlelink">Design</a>
-                    <button onclick="showDesignAddPage()">Add Page</button>
+                    <p id="designimages"></p>
+                    <button onclick="showDesignAddPage()" id="addDesignPageButton">Add Page</button>
                     <div id="designpageselector">
                         <h3>Select A Design</h3>
                         <form id="choosepagelayoutform">
                             <!-- Sidebar Layout Reverse -->
                             <input type="radio" id="reversesidebarlayout" name="pagelayoutradiobuttons">
-                            <label for="reversesidebarlayout">
+                            <label for="reversesidebarlayout" id="reversesidebarlayoutid">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
                                     <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
                                     <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
@@ -138,34 +139,19 @@
                                     <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13zM1.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 .5.5H5V1H1.5zM10 15V1H6v14h4zm1 0h3.5a.5.5 0 0 0 .5-.5v-13a.5.5 0 0 0-.5-.5H11v14z"/>
                                 </svg>
                             </label>
-                            <!-- None -->
-                            <input type="radio" id="nolayout" name="pagelayoutradiobuttons">
-                            <label for="nolayout">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
-                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                </svg>
-                            </label>
-                            <button id="designpagebuttonenter" onclick="addDesignPage()">Select</button>
+                            <button id="designpagebuttonenter" onclick="addDesignPage()" type="button">Select</button>
                         </form>
                     </div>
                 </div>
                 <div class="todo">
+                    <h1 id="projecttitle"></h1>
+                    <p>Please Note This Does Not Save. Limit Of 5 Designs.</p>
                     <a href="/projects/project-todo.html" id="todotitlelink">To Do</a>
                     <table id="todotable">
                         <tr>
                             <th style="width: 20%;">Status</th>
                             <th style="width: 30%;">Name</th>
                             <th style="width: 50%;">Description</th>
-                        </tr>
-                        <tr>
-                            <td style="width: 20%;"><select class="statusselect" onchange="changeOptionColor()">
-                                <option value="1" id="statusselectoption1">Not Started</option>
-                                <option value="2">Started</option>
-                                <option value="3">Debugging</option>
-                                <option value="4">Done</option>
-                            </select></td>
-                            <td style="width: 30%;"><textarea class="textboxinputname"></textarea></td>
-                            <td style="width: 50%;"><textarea class="textboxinputdescription"></textarea></td>
                         </tr>
                     </table>
                     <div id="todotablebuttons">
