@@ -128,16 +128,23 @@
         checkNewLayout();
         projectLayout = selectedLayout;
         //Storage
+        //TESTING//
+        newArray.push(projectName.value + "Storage");
+        console.log(newArray);
+        //localStorage.setItem(, JSON.stringify(newArray))
+        //WORKING//
         sessionStorage.setItem("newProjectName", projectName);
         sessionStorage.setItem("newProjectPlatform", projectPlatform);
         sessionStorage.setItem("newProjectLayout", projectLayout);
         //Redirect
-        if (projectLayout != "" && projectName != "" && projectPlatform != "") {
-        location.href = "/projects/my-projects.html";
+        //TESTING//
+        //if (projectLayout != "" && projectName != "" && projectPlatform != "") {
+        //location.href = "/projects/my-projects.html";
         newProject = true;
         sessionStorage.setItem("newprojectcreated", newProject);
-        }
+        //}
      }
+     //New Project Functions
      function checkNewPlatform() {
         var options = document.getElementsByName("platformradiobuttons");
         for (i=0; i<options.length; i++) {
@@ -227,7 +234,8 @@
             x.innerText = "No Layout Selected";
         }
      } 
-     //Project Page
+     //Project Pages
+     //Project Storage
      //Project Page To Do
      function addToDoRow() {
         //Table Variable
@@ -368,7 +376,7 @@
         document.getElementById("newpasswordinput").value = "";
         document.getElementById("newpasswordinputcheck").value = "";
      }
-     //Settings Page
+     //Settings Pages
      //Base Settings Page
      function changeColor() {
         var newcolor = document.getElementById("changecolorinput").value;
